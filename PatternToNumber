@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Sep 13 15:32:28 2016
+
+@author: annaleigh.brown
+"""
+
+def SymbolToNumber(symbol):
+    r = ['A','C','G','T']
+    return r.index(symbol)
+
+def PatternToNumber(pat):
+    if len(pat) == 0:
+        return 0
+    symbol = pat[-1]
+    pref = pat[:-1]
+    return 4 * PatternToNumber(pref) + SymbolToNumber(symbol)
+    
+print(PatternToNumber('CTTCTCACGTACAACAAAATC'))

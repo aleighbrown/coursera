@@ -1,18 +1,18 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Sep 13 16:33:01 2016
-
-@author: annaleigh.brown
-"""
 from PatternToNumber import *
 
 def ComputingFrequencies(text,k):
-    freqList = [0] * (4**k - 1)
+    freqList = [0] * (4**k)
+    print("lengh of list" + str(len(freqList)))
     for i in range(0, len(text) - k + 1):
+        print(i)
         patt = text[i : i + k]
         j = PatternToNumber(patt)
-
+        print(j)
         freqList[j] = freqList[j] + 1
     return freqList
         
-r = ComputingFrequencies('ACGCGGCTCTGAAA',2)
+r = ComputingFrequencies('AAA',2)
+#f = open('fileeeee.txt','w')
+#f.write(repr(r))
+#f.close()
+print(r)

@@ -1,0 +1,14 @@
+
+def NumberToSymbol(index):
+    a = ['A', 'C', 'G', 'T']
+    return a[index]
+    
+def NumberToPattern(index, k):
+    if k == 1:
+        return NumberToSymbol(index)
+    prefInd = index // 4
+    r = index % 4
+    symbol = NumberToSymbol(r)
+    prefixPat = NumberToPattern(prefInd, k-1)
+    
+    return prefixPat + symbol

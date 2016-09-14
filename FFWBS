@@ -1,0 +1,28 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Sep 14 13:51:54 2016
+
+@author: annaleigh.brown
+"""
+from PatternToNumber import *
+from NumberToPattern import *
+
+def FFWBS(text, k):
+    freqPat = []
+    ind = []
+    count = []
+    for i in range(0, len(text) - k):
+        pat = text[i:i+k]
+        ind.append(PatternToNumber(pat))
+        count.append(1)
+    sInd = sorted(ind)
+    for i in range(1, len(text) - k):
+        if sInd[i] == sInd[i-1]:
+            count[i] = count[i - 1] + 1
+    maxCount = max(count)
+    for i in range(0, len(text) - k):
+        if count[i] == maxCount:
+            patts = NumberToPattern(sInd[i],k)
+            freqPat.append(patts)
+
+    return freqPat

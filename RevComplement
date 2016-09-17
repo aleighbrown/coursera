@@ -1,0 +1,8 @@
+def RevComplement(text):
+    d = {'A' : 'T', 'T' : 'A', 'C' : 'G', 'G' : 'C'}
+    text = text[::-1]
+    comp = ''
+    for b in text:
+        comp = comp + d[b]
+        
+    return comp
